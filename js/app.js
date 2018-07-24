@@ -200,6 +200,7 @@ window.onload = function(){ //Acciones tras cargar la página
 pantalla=document.getElementById("display"); //elemento pantalla de salida
 }
 x="0"; //número en pantalla
+tam= ""; //tamaño numeros de la pantalla display
 xi=1; //iniciar número en pantalla: 1=si; 0=no;
 coma=0; //estado coma decimal 0=no, 1=si;
 ni=0; //número oculto o en espera.
@@ -270,26 +271,10 @@ op="no"; //operación en curso; "no" =  sin operación.
   //******************************************************************************//
 
 //------------LLEVO EL VALOR A LA PANTALLA Y LO ALMACENO---------------------//
-function numero(xx) {  //recoge el número pulsado en el argumento.
-asdf
-         if (x=="0" || xi==1  ) {  // inicializar un número,
-           console.log(xx);
-            pantalla.innerHTML=xx; //mostrar en pantalla
-            x=xx; //guardar número;
-            }
-         else { //continuar un número
-           console.log("este"+xx);
-            pantalla.innerHTML+=xx; //añadimos y mostramos en pantalla.
-            x+=xx; //añadimos y guardamos
-            }
-         xi=0 //el número está iniciado y podemos ampliarlo.
-         }
-
-//************************************************************************//
-
-
 //-----------------VALIDO LA COMA (,)--------------------------------------//
 function numero(xx) { //recoge el número pulsado en el argumento.
+
+
          if (x=="0" || xi==1  ) { // inicializar un número,
             pantalla.innerHTML=xx; //mostrar en pantalla
             x=xx; //guardar número
@@ -315,6 +300,7 @@ function numero(xx) { //recoge el número pulsado en el argumento.
             }
             xi=0 //el número está iniciado y podemos ampliarlo.
          }
+
 //***********************************************************************************//
 
 //---------------------------OPERACIONES---------------------------------------------//
@@ -323,6 +309,7 @@ function operar(s) {
          ni=x //ponemos el 1� número en "numero en espera" para poder escribir el segundo.
          op=s; //guardamos tipo de operación.
          xi=1; //inicializar pantalla.
+         pantalla.innerHTML="";
 }
 
 function igualar() {
@@ -359,4 +346,4 @@ function borradoTotal() {
          coma=0; //reiniciar estado coma decimal
          ni=0 //indicador de número oculto a 0;
          op="no" //borrar operación en curso.
-         }
+}
